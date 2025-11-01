@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YCS-HARI</title>
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Your styles -->
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+  <header class="header">
+    <div class="container d-flex align-items-center">
+      <a href="https://www.youtube.com/@YCS-HARI" class="logo-inner" target="_blank" rel="noopener noreferrer">AUTO-ROOM</a>
+    </div>
+  </header>
+
+  
+        <div class="code">
+            <pre>
+<font color="#00979c">int</font> <font color="#d9d9d9">fan</font> <font color="#aaaaaa">=</font> <font color="#ffcd22">8</font><font color="#d9d9d9">;</font>
+<font color="#00979c">int</font> <font color="#d9d9d9">light</font> <font color="#aaaaaa">=</font> <font color="#ffcd22">9</font><font color="#d9d9d9">;</font>
+<font color="#00979c">int</font> <font color="#d9d9d9">plug</font> <font color="#aaaaaa">=</font> <font color="#ffcd22">10</font><font color="#d9d9d9">;</font>
+<font color="#00979c">char</font> <font color="#d9d9d9">command</font><font color="#d9d9d9">;</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#aaaaaa">(</font><font color="#aaaaaa">)</font> <font color="#aaaaaa">{</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#aaaaaa">.</font><font color="#d35400">begin</font><font color="#aaaaaa">(</font><font color="#ffcd22">9600</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#aaaaaa">.</font><font color="#d35400">println</font><font color="#aaaaaa">(</font><font color="#00979c">&#34;AutoRoom Initalized!&#34;</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#aaaaaa">(</font><font color="#d9d9d9">fan</font><font color="#aaaaaa">,</font> <font color="#00979c">OUTPUT</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#aaaaaa">(</font><font color="#d9d9d9">light</font><font color="#aaaaaa">,</font> <font color="#00979c">OUTPUT</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#aaaaaa">(</font><font color="#d9d9d9">plug</font><font color="#aaaaaa">,</font> <font color="#00979c">OUTPUT</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+<font color="#aaaaaa">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#aaaaaa">(</font><font color="#aaaaaa">)</font> <font color="#aaaaaa">{</font>
+ &nbsp;<font color="#d9d9d9">command</font> <font color="#aaaaaa">=</font> <b><font color="#d35400">Serial</font></b><font color="#aaaaaa">.</font><font color="#d35400">read</font><font color="#aaaaaa">(</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;<font color="#5e6d03">if</font> <font color="#aaaaaa">(</font><font color="#d9d9d9">command</font> <font color="#aaaaaa">!=</font> <font color="#aaaaaa">-</font><font color="#ffcd22">1</font><font color="#aaaaaa">)</font> <font color="#aaaaaa">{</font> 
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font><font color="#aaaaaa">(</font><font color="#d9d9d9">command</font> <font color="#aaaaaa">==</font> <font color="#00979c">&#39;L&#39;</font><font color="#aaaaaa">)</font><font color="#aaaaaa">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#aaaaaa">(</font><font color="#d9d9d9">light</font><font color="#aaaaaa">,</font> <font color="#00979c">HIGH</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#aaaaaa">}</font><font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#aaaaaa">(</font><font color="#d9d9d9">command</font> <font color="#aaaaaa">==</font> <font color="#00979c">&#39;l&#39;</font><font color="#aaaaaa">)</font><font color="#aaaaaa">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#aaaaaa">(</font><font color="#d9d9d9">light</font><font color="#aaaaaa">,</font> <font color="#00979c">LOW</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#aaaaaa">}</font><font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#aaaaaa">(</font><font color="#d9d9d9">command</font> <font color="#aaaaaa">==</font> <font color="#00979c">&#39;F&#39;</font><font color="#aaaaaa">)</font><font color="#aaaaaa">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#aaaaaa">(</font><font color="#d9d9d9">fan</font><font color="#aaaaaa">,</font> <font color="#00979c">HIGH</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#aaaaaa">}</font><font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#aaaaaa">(</font><font color="#d9d9d9">command</font> <font color="#aaaaaa">==</font> <font color="#00979c">&#39;f&#39;</font><font color="#aaaaaa">)</font><font color="#aaaaaa">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#aaaaaa">(</font><font color="#d9d9d9">fan</font><font color="#aaaaaa">,</font> <font color="#00979c">LOW</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#aaaaaa">}</font><font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#aaaaaa">(</font><font color="#d9d9d9">command</font> <font color="#aaaaaa">==</font> <font color="#00979c">&#39;P&#39;</font><font color="#aaaaaa">)</font><font color="#aaaaaa">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#aaaaaa">(</font><font color="#d9d9d9">plug</font><font color="#aaaaaa">,</font> <font color="#00979c">HIGH</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#aaaaaa">}</font><font color="#5e6d03">else</font> <font color="#5e6d03">if</font><font color="#aaaaaa">(</font><font color="#d9d9d9">command</font> <font color="#aaaaaa">==</font> <font color="#00979c">&#39;p&#39;</font><font color="#aaaaaa">)</font><font color="#aaaaaa">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#aaaaaa">(</font><font color="#d9d9d9">plug</font><font color="#aaaaaa">,</font> <font color="#00979c">LOW</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#aaaaaa">}</font>
+ &nbsp;<font color="#aaaaaa">}</font> 
+
+ &nbsp;<font color="#d35400">delay</font><font color="#aaaaaa">(</font><font color="#ffcd22">10</font><font color="#aaaaaa">)</font><font color="#d9d9d9">;</font> 
+<font color="#aaaaaa">}</font>
+
+</pre>
+        </div>
+        <div class="discryption">
+            <h3>HC05 - 1</h3>
+            <h3>Arduino - 1</h3>
+            <h3>Relay - 3</h3>
+        </div>
+        <hr>
+        <div class="discryption">
+            <h3>Fan : D8</h3>
+            <h3>Light : D9</h3>
+            <h3>Plug : D10</h3>
+        </div>
+        <br>
+  <!-- Bootstrap bundle (includes Popper). No jQuery required for Bootstrap 5 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -56,3 +56,10 @@ body {
     height: 160px;
   }
 }
+.code{
+  border: 5px;
+  border-radius: 4px;
+  border-color: #111;
+  height: fit-content;
+  background-color: #111;
+}
